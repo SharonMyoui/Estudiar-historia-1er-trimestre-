@@ -1,182 +1,171 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Quiz Historia 1er Trimestre</title>
+  <meta charset="UTF-8">
+  <title>Flashcards Historia - 1er Trimestre</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
-
-    :root {
-      --bg: #1e1e2e;
-      --card-bg: #2c2c44;
-      --text: #e0e0f0;
-      --accent: #ff94ad;
-      --highlight: #b1d7ff;
-      --shadow: rgba(255, 148, 173, 0.3);
-      --correct: #a3f7bf;
-      --incorrect: #f7a3a3;
-    }
-
     body {
+      background: #fdf6f0;
+      font-family: 'Segoe UI', sans-serif;
       margin: 0;
       padding: 2rem;
-      background-color: var(--bg);
-      font-family: 'Poppins', sans-serif;
-      color: var(--text);
+      color: #333;
     }
-
     h1 {
       text-align: center;
-      color: var(--accent);
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
+      color: #574b90;
     }
-
-    .card-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
+    .tema {
+      margin-top: 2rem;
     }
-
-    .card {
-      background: var(--card-bg);
-      border-radius: 16px;
-      padding: 1.5rem;
-      box-shadow: 0 0 15px var(--shadow);
-    }
-
-    .card h2 {
-      color: var(--highlight);
-      font-size: 1.4rem;
-      margin-bottom: 1rem;
-    }
-
-    .question {
-      margin-bottom: 1rem;
-    }
-
-    .options label {
-      display: block;
-      margin-bottom: 0.5rem;
-      cursor: pointer;
-    }
-
-    .check-btn {
-      margin-top: 1rem;
-      background-color: var(--accent);
-      color: #1e1e2e;
-      border: none;
-      padding: 0.5rem 1rem;
+    .tema h2 {
+      background: #ffd6e0;
+      padding: 10px;
       border-radius: 8px;
+      color: #574b90;
+    }
+    .card {
+      background: #fff;
+      border-left: 5px solid #ffc7c7;
+      margin: 1rem 0;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .pregunta {
+      font-weight: bold;
+      color: #222;
+      margin-bottom: 8px;
+    }
+    .respuesta {
+      display: none;
+      margin-top: 5px;
+      color: #444;
+    }
+    .btn-toggle {
+      margin-top: 8px;
+      background: #ffd6e0;
+      color: #574b90;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
       cursor: pointer;
       font-weight: bold;
-      transition: background-color 0.3s;
+      transition: background 0.3s;
     }
-
-    .check-btn:hover {
-      background-color: #ffa7be;
-    }
-
-    .result {
-      margin-top: 1rem;
-      font-weight: bold;
-    }
-
-    .correct {
-      color: var(--correct);
-    }
-
-    .incorrect {
-      color: var(--incorrect);
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 3rem;
-      font-size: 0.9rem;
-      color: #aaa;
+    .btn-toggle:hover {
+      background: #ffc0cb;
     }
   </style>
 </head>
 <body>
+  <h1>Tarjetas de Estudio – Historia 1er Trimestre</h1>
 
-  <h1>Quiz - Historia 1er Trimestre</h1>
-
-  <div class="card-container">
-
+  <div class="tema">
+    <h2>Tema 1 – Antiguo Régimen e Ilustración</h2>
     <div class="card">
-      <h2>Tema 1</h2>
-      <div class="question">¿Qué caracteriza al Antiguo Régimen?</div>
-      <div class="options">
-        <label><input type="radio" name="q1" value="0" /> Democracia y libre mercado</label>
-        <label><input type="radio" name="q1" value="1" /> Monarquía absoluta y sociedad estamental</label>
-        <label><input type="radio" name="q1" value="0" /> Revolución industrial y sindicatos</label>
-      </div>
-      <button class="check-btn" onclick="checkAnswer('q1', 1)">Comprobar</button>
-      <div class="result" id="result-q1"></div>
+      <div class="pregunta">¿Qué características tenía el Antiguo Régimen?</div>
+      <button class="btn-toggle" onclick="toggle(this)">Mostrar/Ocultar respuesta</button>
+      <div class="respuesta">Economía agraria, sociedad estamental, poder absoluto del monarca.</div>
     </div>
-
     <div class="card">
-      <h2>Tema 2</h2>
-      <div class="question">¿Qué hecho inspiró la Revolución Francesa?</div>
-      <div class="options">
-        <label><input type="radio" name="q2" value="0" /> La independencia de Brasil</label>
-        <label><input type="radio" name="q2" value="1" /> La Revolución Americana</label>
-        <label><input type="radio" name="q2" value="0" /> El Congreso de Viena</label>
-      </div>
-      <button class="check-btn" onclick="checkAnswer('q2', 1)">Comprobar</button>
-      <div class="result" id="result-q2"></div>
+      <div class="pregunta">¿Qué es la Ilustración?</div>
+      <button class="btn-toggle" onclick="toggle(this)">Mostrar/Ocultar respuesta</button>
+      <div class="respuesta">Movimiento intelectual del siglo XVIII que promovía la razón, la ciencia y los derechos individuales.</div>
     </div>
-
     <div class="card">
-      <h2>Tema 3</h2>
-      <div class="question">¿Qué favoreció el inicio de la Revolución Industrial?</div>
-      <div class="options">
-        <label><input type="radio" name="q3" value="0" /> La caída del muro de Berlín</label>
-        <label><input type="radio" name="q3" value="1" /> La revolución agrícola y la abundancia de carbón</label>
-        <label><input type="radio" name="q3" value="0" /> El absolutismo</label>
-      </div>
-      <button class="check-btn" onclick="checkAnswer('q3', 1)">Comprobar</button>
-      <div class="result" id="result-q3"></div>
+      <div class="pregunta">¿Qué filósofos destacan en la Ilustración?</div>
+      <button class="btn-toggle" onclick="toggle(this)">Mostrar/Ocultar respuesta</button>
+      <div class="respuesta">Voltaire, Rousseau, Montesquieu, Locke.</div>
     </div>
-
     <div class="card">
-      <h2>Tema 4</h2>
-      <div class="question">¿Qué país inspiró la unificación italiana?</div>
-      <div class="options">
-        <label><input type="radio" name="q4" value="0" /> Francia</label>
-        <label><input type="radio" name="q4" value="1" /> Alemania</label>
-        <label><input type="radio" name="q4" value="0" /> Portugal</label>
-      </div>
-      <button class="check-btn" onclick="checkAnswer('q4', 1)">Comprobar</button>
-      <div class="result" id="result-q4"></div>
+      <div class="pregunta">¿Qué es el liberalismo económico?</div>
+      <button class="btn-toggle" onclick="toggle(this)">Mostrar/Ocultar respuesta</button>
+      <div class="respuesta">Doctrina que defiende el libre mercado y la mínima intervención del Estado.</div>
     </div>
-
   </div>
 
-  <footer>Creado por ChatGPT ✦ Historia Interactiva 2025</footer>
+  <div class="tema">
+    <h2>Tema 2 – Revoluciones y Restauración</h2>
+    <div class="card">
+      <div class="pregunta">¿Qué principios defiende el liberalismo político?</div>
+      <button class="btn-toggle" onclick="toggle(this)">Mostrar/Ocultar respuesta</button>
+      <div class="respuesta">Soberanía nacional, división de poderes, derechos individuales y sufragio.</div>
+    </div>
+    <div class="card">
+      <div class="pregunta">¿Cuándo fue la Revolución Americana?</div>
+      <button class="btn-toggle" onclick="toggle(this)">Mostrar/Ocultar respuesta</button>
+      <div class="respuesta">Entre 1775 y 1783, con la independencia de EE. UU. en 1776.</div>
+    </div>
+    <div class="card">
+      <div class="pregunta">¿Cuáles fueron las etapas de la Revolución Francesa?</div>
+      <button class="btn-toggle" onclick="toggle(this)">Mostrar/Ocultar respuesta</button>
+      <div class="respuesta">Monarquía constitucional, república, el Terror, Directorio y Napoleón.</div>
+    </div>
+    <div class="card">
+      <div class="pregunta">¿Qué fue la Restauración?</div>
+      <button class="btn-toggle" onclick="toggle(this)">Mostrar/Ocultar respuesta</button>
+      <div class="respuesta">Etapa tras la derrota de Napoleón (1815), donde se restauran las monarquías absolutas.</div>
+    </div>
+  </div>
+
+  <div class="tema">
+    <h2>Tema 3 – Revolución Industrial</h2>
+    <div class="card">
+      <div class="pregunta">¿Por qué comenzó en Gran Bretaña?</div>
+      <button class="btn-toggle" onclick="toggle(this)">Mostrar/Ocultar respuesta</button>
+      <div class="respuesta">Por su capital, recursos naturales, mano de obra y avances tecnológicos.</div>
+    </div>
+    <div class="card">
+      <div class="pregunta">¿Qué fue la revolución agrícola?</div>
+      <button class="btn-toggle" onclick="toggle(this)">Mostrar/Ocultar respuesta</button>
+      <div class="respuesta">Mejoras en técnicas y maquinaria que aumentaron la producción agrícola.</div>
+    </div>
+    <div class="card">
+      <div class="pregunta">¿Qué diferencia hay entre la industrialización británica y la continental?</div>
+      <button class="btn-toggle" onclick="toggle(this)">Mostrar/Ocultar respuesta</button>
+      <div class="respuesta">En el continente fue más tardía, lenta y dependiente de la británica.</div>
+    </div>
+    <div class="card">
+      <div class="pregunta">¿Qué es la Segunda Revolución Industrial?</div>
+      <button class="btn-toggle" onclick="toggle(this)">Mostrar/Ocultar respuesta</button>
+      <div class="respuesta">Fase con nuevos sectores: electricidad, química, acero, petróleo (finales del XIX).</div>
+    </div>
+  </div>
+
+  <div class="tema">
+    <h2>Tema 4 – Nacionalismo y Emancipaciones</h2>
+    <div class="card">
+      <div class="pregunta">¿Qué es el nacionalismo?</div>
+      <button class="btn-toggle" onclick="toggle(this)">Mostrar/Ocultar respuesta</button>
+      <div class="respuesta">Ideología que defiende la identidad y soberanía de una nación.</div>
+    </div>
+    <div class="card">
+      <div class="pregunta">¿Qué oleadas revolucionarias liberales hubo en Europa?</div>
+      <button class="btn-toggle" onclick="toggle(this)">Mostrar/Ocultar respuesta</button>
+      <div class="respuesta">1820, 1830 y 1848: luchaban contra el absolutismo.</div>
+    </div>
+    <div class="card">
+      <div class="pregunta">¿Cómo influyó Alemania en la unificación italiana?</div>
+      <button class="btn-toggle" onclick="toggle(this)">Mostrar/Ocultar respuesta</button>
+      <div class="respuesta">Inspiró y apoyó procesos militares y políticos para unificar Italia.</div>
+    </div>
+    <div class="card">
+      <div class="pregunta">¿Quiénes fueron líderes de la emancipación hispanoamericana?</div>
+      <button class="btn-toggle" onclick="toggle(this)">Mostrar/Ocultar respuesta</button>
+      <div class="respuesta">Simón Bolívar, José de San Martín, Miguel Hidalgo, entre otros.</div>
+    </div>
+  </div>
 
   <script>
-    function checkAnswer(questionName, correctIndex) {
-      const radios = document.getElementsByName(questionName);
-      const result = document.getElementById("result-" + questionName);
-      let selected = -1;
-      radios.forEach((radio, i) => {
-        if (radio.checked) selected = parseInt(radio.value);
-      });
-      if (selected === -1) {
-        result.textContent = "Selecciona una opción.";
-        result.className = "result incorrect";
-      } else if (selected === correctIndex) {
-        result.textContent = "¡Correcto!";
-        result.className = "result correct";
+    function toggle(button) {
+      const respuesta = button.nextElementSibling;
+      if (respuesta.style.display === 'block') {
+        respuesta.style.display = 'none';
       } else {
-        result.textContent = "Incorrecto. Intenta de nuevo.";
-        result.className = "result incorrect";
+        respuesta.style.display = 'block';
       }
     }
   </script>
-
 </body>
 </html>
