@@ -2,10 +2,10 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Tarjetas de Historia – 1er Trimestre</title>
+  <title>Tarjetas de Estudio – Historia 1er Trimestre</title>
   <style>
     body {
-      background: #fdf6f0;
+      background: #f9f6ff;
       font-family: 'Segoe UI', sans-serif;
       padding: 2rem;
       color: #333;
@@ -13,97 +13,118 @@
 
     h1 {
       text-align: center;
-      color: #574b90;
+      color: #7a5cc2;
+      margin-bottom: 2rem;
     }
 
     .card {
       background: #fff;
-      border-left: 5px solid #ffc7c7;
+      border-left: 6px solid #bfa3f2;
       margin: 1.5rem auto;
-      padding: 1rem;
-      border-radius: 10px;
-      max-width: 600px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 1.2rem;
+      border-radius: 12px;
+      max-width: 700px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
     }
 
     .tema {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       font-weight: bold;
-      color: #574b90;
-      margin-bottom: 0.5rem;
+      color: #7a5cc2;
+      margin-bottom: 0.6rem;
     }
 
     .pregunta {
+      font-size: 1rem;
       font-weight: bold;
       margin-bottom: 0.5rem;
+      color: #444;
     }
 
     .respuesta {
       display: none;
       margin-top: 0.5rem;
-      color: #444;
+      color: #555;
+      background: #f0ebff;
+      padding: 0.7rem;
+      border-radius: 8px;
     }
 
     .btn-toggle {
-      background: #ffd6e0;
+      background: #d9c5f2;
       border: none;
-      color: #574b90;
-      padding: 8px 14px;
-      border-radius: 6px;
+      color: #4b367c;
+      padding: 8px 16px;
+      border-radius: 8px;
       cursor: pointer;
       font-weight: bold;
       transition: background 0.3s;
+      margin-top: 0.4rem;
     }
 
     .btn-toggle:hover {
-      background: #ffb6c1;
+      background: #c3aef0;
     }
   </style>
 </head>
 <body>
-  <h1>Tarjetas de Estudio – Historia 1er Trimestre</h1>
 
+  <h1>🧠 Tarjetas de Estudio – Historia 1er Trimestre</h1>
+
+  <!-- TEMA 1 -->
   <div class="card">
     <div class="tema">Tema 1 – Antiguo Régimen e Ilustración</div>
     <div class="pregunta">¿Cuáles eran las principales características del Antiguo Régimen?</div>
     <button class="btn-toggle" onclick="toggle(this)">Mostrar/Ocultar respuesta</button>
     <div class="respuesta">
-      Economía agraria, sociedad estamental (nobleza, clero y pueblo), y monarquía absoluta donde el rey concentraba el poder.
+      Economía agraria, sociedad estamental (nobleza, clero y pueblo llano), y monarquía absoluta con poder centralizado en el rey.
     </div>
   </div>
 
+  <!-- TEMA 2 -->
   <div class="card">
     <div class="tema">Tema 2 – Revoluciones y Restauración</div>
     <div class="pregunta">¿Cuáles fueron las etapas principales de la Revolución Francesa?</div>
     <button class="btn-toggle" onclick="toggle(this)">Mostrar/Ocultar respuesta</button>
     <div class="respuesta">
-      Monarquía constitucional, república y Terror, Directorio, y el Consulado/Imperio napoleónico.
+      1. Monarquía constitucional (1789–1792) <br>
+      2. República y el Terror (1792–1794) <br>
+      3. El Directorio (1795–1799) <br>
+      4. El Consulado y el Imperio (1799–1815)
     </div>
   </div>
 
+  <!-- TEMA 3 -->
   <div class="card">
     <div class="tema">Tema 3 – Revolución Industrial</div>
     <div class="pregunta">¿Qué factores permitieron que la Revolución Industrial comenzara en Gran Bretaña?</div>
     <button class="btn-toggle" onclick="toggle(this)">Mostrar/Ocultar respuesta</button>
     <div class="respuesta">
-      Recursos naturales, capital disponible, avances técnicos, red de transporte, mano de obra y estabilidad política.
+      Recursos naturales (carbón y hierro), capital, avances tecnológicos, población trabajadora, sistema bancario sólido y estabilidad política.
     </div>
   </div>
 
+  <!-- TEMA 4 -->
   <div class="card">
     <div class="tema">Tema 4 – Nacionalismos y Emancipaciones</div>
     <div class="pregunta">¿Qué características tuvo la unificación alemana y qué influencia tuvo sobre Italia?</div>
     <button class="btn-toggle" onclick="toggle(this)">Mostrar/Ocultar respuesta</button>
     <div class="respuesta">
-      Fue liderada por Prusia mediante guerras. Inspiró a los italianos al mostrar que la unidad era posible con un liderazgo fuerte.
+      La unificación alemana fue liderada por Prusia y Bismarck mediante guerras. Inspiró a Italia a buscar su unidad también bajo liderazgo firme.
     </div>
   </div>
 
   <script>
-    function toggle(button) {
-      const respuesta = button.nextElementSibling;
-      respuesta.style.display = (respuesta.style.display === 'block') ? 'none' : 'block';
+    function toggle(btn) {
+      const respuesta = btn.nextElementSibling;
+      respuesta.style.display = (respuesta.style.display === "block") ? "none" : "block";
     }
   </script>
+
 </body>
 </html>
